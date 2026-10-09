@@ -14,7 +14,19 @@ Una compañía comercial que opera a nivel internacional procesa ventas diarias 
 
 ## 🏗️ Arquitectura del Proyecto (Estructura de Directorios en Azure Data Lake)
 
-Los datos se organizan y procesan de forma estructurada dentro del almacenamiento en la nube (`sttpiicaro` / `tpi-data`):
+El flujo de datos se procesa a través de tres capas principales en **Azure Data Lake Storage Gen2** (`sttpiicaro`):
+1. **Capa Bronze (Raw):** Almacenamiento inmutable de los archivos CSV transaccionales y las respuestas JSON de la API REST de tipos de cambio.
+2. **Capa Silver (Clean & Standardized):** Limpieza de datos, eliminación de duplicados, validaciones de calidad (*Data Quality Checks*) y cruce (*Join*) con las cotizaciones diarias para unificar montos a $USD$.
+3. **Capa Gold (Business / Aggregations):** Modelado de la tabla de hechos (`fact_ventas`) y generación de la vista agregada analítica (`kpi_ventas_gerencial`) en Delta Lake.
+
+---
+
+## 🛠️ Stack Tecnológico
+* **Cloud Platform:** Microsoft Azure
+* **Storage:** Azure Data Lake Storage Gen2 (`sttpiicaro` / contenedor `tpi-data`)
+* **Orquestación:** Azure Data Factory (ADF) con desencadenador diario (`trg_daily_medallion_pipeline`)
+* **Procesamiento de Datos:** Databricks, PySpark y Delta Lake
+* **Lenguajes:** Python y SQL
 
 ```text
 📁 sttpiicaro (Storage Account)
@@ -32,15 +44,10 @@ Los datos se organizan y procesan de forma estructurada dentro del almacenamient
         └── 📁 kpi_ventas_gerencial/    # Datasets agregados listos para consumo analítico
 
 
+---
 ⚙️ Automatización (Orquestación)
 El flujo completo se ejecuta mediante un pipeline en Azure Data Factory (pipeline_medallion_tpi), configurado con un desencadenador diario (trg_daily_medallion_pipeline). Este orquestador secuencia la ingesta cruda y dispara de forma automatizada los notebooks de transformación en los clústeres distribuidos de Databricks.
 
-🛠️ Stack Tecnológico
-Plataforma en la nube: Microsoft Azure
-Almacenamiento: Azure Data Lake Storage Gen2 (sttpiicaro / contenedor tpi-data)
-Orquestación: Azure Data Factory (ADF) con desencadenador diario (trg_daily_medallion_pipeline)
-Procesamiento de Datos: Databricks, PySpark y Delta Lake
-Lenguajes: Python y Spark SQL
 
 ---
 👩‍💻 Autor
