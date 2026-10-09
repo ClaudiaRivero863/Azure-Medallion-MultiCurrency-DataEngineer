@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-tpi-icaro"
+		},
+		"ls_blob_sttpiicaro_connectionString": {
+			"value": ""
+		},
+		"ls_databricks_tpi_accessToken": {
+			"value": ""
+		},
+		"ls_api_frankfurter_properties_typeProperties_url": {
+			"value": "https://api.frankfurter.app"
+		},
+		"ls_databricks_tpi_properties_typeProperties_existingClusterId": {
+			"value": "1004-223251-qof5rcex"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
