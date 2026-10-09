@@ -1,0 +1,15 @@
+{
+	"name": "adf-tpi-icaro",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "brazilsouth",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "c6562db0-8201-4a4d-9784-64e979c72ae5",
+		"tenantId": "5274e784-d481-41d9-b814-11d45f541cb2"
+	}
+}

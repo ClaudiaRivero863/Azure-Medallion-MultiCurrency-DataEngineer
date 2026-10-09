@@ -1,0 +1,14 @@
+{
+	"name": "ls_api_frankfurter",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "Servicio vinculado REST para la integración con la API pública de Frankfurter, utilizado para la extracción de cotizaciones de tipos de cambio históricos y diarios.",
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": "https://api.frankfurter.app",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}

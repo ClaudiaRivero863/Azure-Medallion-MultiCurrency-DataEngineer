@@ -1,0 +1,21 @@
+{
+	"name": "ds_tasas_cambio_bronze",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_blob_sttpiicaro",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "frankfurter_2024_01.json",
+				"folderPath": "bronze/tasas_cambio",
+				"container": "tpi-data"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

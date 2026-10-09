@@ -1,0 +1,25 @@
+{
+	"name": "ds_ventas_bronze",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_blob_sttpiicaro",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "ventas_raw.csv",
+				"folderPath": "bronze",
+				"container": "tpi-data"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

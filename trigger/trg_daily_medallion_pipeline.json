@@ -1,0 +1,25 @@
+{
+	"name": "trg_daily_medallion_pipeline",
+	"properties": {
+		"description": "Ejecución diaria programada a las 02:00 AM para el procesamiento de ventas multimoneda y actualización del modelo Gold.",
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pipeline_medallion_tpi",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2026-10-07T02:00:00",
+				"timeZone": "Argentina Standard Time"
+			}
+		}
+	}
+}
